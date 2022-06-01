@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/grid_20">
+
+    <TextView
+        android:id="@+id/schoolName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="schoolName" />
+
+    <TextView
+        android:id="@+id/mathScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="mathScore" />
+
+    <TextView
+        android:id="@+id/readingScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="mathScore" />
+
+    <TextView
+        android:id="@+id/writingScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="mathScore" />
+
+</LinearLayout>
