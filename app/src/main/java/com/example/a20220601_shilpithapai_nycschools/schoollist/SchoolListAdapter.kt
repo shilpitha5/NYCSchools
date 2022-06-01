@@ -8,29 +8,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.a20220601_shilpithapai_nycschools.databinding.ItemSchoolBinding
 import com.example.a20220601_shilpithapai_nycschools.models.School
 
-class SchoolListAdapter(private val clickFunction: (String) -> Unit) :
-    PagingDataAdapter<School, SchoolListAdapter.Dataholder>(DiffCallBack) {
-    inner class Dataholder(private val itembinding: ItemSchoolBinding) :
-        RecyclerView.ViewHolder(itembinding.root) {
+class SchoolListAdapter(private val showMoreDetails: (School) -> Unit) :
+    PagingDataAdapter<School, SchoolListAdapter.DataHolder>(DiffCallBack) {
+
+    inner class DataHolder(private val binding: ItemSchoolBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(school: School) {
-            itembinding.schoolName.text = school.school_name
-            itembinding.schoolCity.text = school.city
-            itembinding.viewMore.setOnClickListener {
-                clickFunction(school.dbn)
+            binding.schoolName.text = school.school_name
+            binding.schoolCity.text = school.city
+            binding.viewMore.setOnClickListener {
+                showMoreDetails(school)
             }
         }
     }
 
-    override fun onBindViewHolder(holder: Dataholder, position: Int) {
+    override fun onBindViewHolder(holder: DataHolder, position: Int) {
         val data = getItem(position)
         data?.let {
             holder.bind(data)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Dataholder {
-        return Dataholder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataHolder {
+        return DataHolder(
             ItemSchoolBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,

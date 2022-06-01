@@ -22,7 +22,7 @@ class SchoolFragment : Fragment(R.layout.fragment_school) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSchoolBinding.bind(view)
-        val parentActivity=activity as MainActivity
+        val parentActivity = activity as MainActivity
         schoolAdapter = SchoolListAdapter(parentActivity::launchSchoolDetailsFragment)
         binding?.rvSchools?.apply {
             layoutManager = LinearLayoutManager(context)
@@ -34,5 +34,4 @@ class SchoolFragment : Fragment(R.layout.fragment_school) {
             }
         }
     }
-
 }

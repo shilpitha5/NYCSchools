@@ -1,5 +1,7 @@
 package com.example.a20220601_shilpithapai_nycschools.models
 
+import java.io.Serializable
+
 data class School(
     val academicopportunities1: String,
     val academicopportunities2: String,
@@ -63,4 +65,4 @@ data class School(
     val total_students: String,
     val website: String,
     val zip: String
-)
+):Serializable

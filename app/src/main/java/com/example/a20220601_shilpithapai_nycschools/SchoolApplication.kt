@@ -16,5 +16,4 @@ class SchoolApplication : Application() {
             modules(networkModule, repositoryModule, viewModelModule)
         }
     }
-
 }

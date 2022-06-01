@@ -1,33 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginStart="@dimen/grid_20">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/schoolName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_20"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="schoolName" />
+
+
+    <TextView
+        android:id="@+id/mathScoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_20"
+        android:text="@string/math_score"
+        android:textAllCaps="true"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:layout_marginStart="@dimen/grid_12"
+        android:textSize="@dimen/list_item_title_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/readingScoreTitle"
+        app:layout_constraintTop_toBottomOf="@id/schoolName" />
 
     <TextView
         android:id="@+id/mathScore"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_8"
+        android:textSize="@dimen/list_item_description_size"
+        app:layout_constraintEnd_toEndOf="@id/mathScoreTitle"
+        app:layout_constraintStart_toStartOf="@id/mathScoreTitle"
+        app:layout_constraintTop_toBottomOf="@id/mathScoreTitle"
         tools:text="mathScore" />
+
+    <TextView
+        android:id="@+id/readingScoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reading_score"
+        android:textAllCaps="true"
+        android:textSize="@dimen/list_item_title_size"
+        app:layout_constraintBottom_toBottomOf="@id/mathScoreTitle"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintEnd_toStartOf="@id/writingScoreTitle"
+        app:layout_constraintStart_toEndOf="@id/mathScoreTitle"
+        app:layout_constraintTop_toTopOf="@id/mathScoreTitle" />
 
     <TextView
         android:id="@+id/readingScore"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_8"
+        android:textSize="@dimen/list_item_description_size"
+        app:layout_constraintEnd_toEndOf="@id/readingScoreTitle"
+        app:layout_constraintStart_toStartOf="@id/readingScoreTitle"
+        app:layout_constraintTop_toBottomOf="@id/readingScoreTitle"
         tools:text="mathScore" />
 
     <TextView
-        android:id="@+id/writingScore"
-        android:layout_width="match_parent"
+        android:id="@+id/writingScoreTitle"
+        android:layout_width="wrap_content"
+        app:layout_constraintHorizontal_chainStyle="spread"
         android:layout_height="wrap_content"
+        android:text="@string/writing_score"
+        app:layout_constraintHorizontal_weight="1"
+        android:textAllCaps="true"
+        android:textSize="@dimen/list_item_title_size"
+        app:layout_constraintBottom_toBottomOf="@id/mathScoreTitle"
+        android:layout_marginEnd="@dimen/grid_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/readingScoreTitle"
+        app:layout_constraintTop_toTopOf="@id/mathScoreTitle" />
+
+    <TextView
+        android:id="@+id/writingScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_8"
+        android:textSize="@dimen/list_item_description_size"
+        app:layout_constraintEnd_toEndOf="@id/writingScoreTitle"
+        app:layout_constraintStart_toStartOf="@id/writingScoreTitle"
+        app:layout_constraintTop_toBottomOf="@id/writingScoreTitle"
         tools:text="mathScore" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,13 @@ package com.example.a20220601_shilpithapai_nycschools
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a20220601_shilpithapai_nycschools.databinding.ActivityMainBinding
+import com.example.a20220601_shilpithapai_nycschools.models.School
 import com.example.a20220601_shilpithapai_nycschools.schooldetails.SchoolDetailsFragment
 import com.example.a20220601_shilpithapai_nycschools.schoollist.SchoolFragment
 
 class MainActivity : AppCompatActivity() {
 
-    val binding: ActivityMainBinding by lazy {
+    private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
@@ -18,23 +19,26 @@ class MainActivity : AppCompatActivity() {
         launchSchoolFragment()
     }
 
-    fun launchSchoolFragment() {
+    private fun launchSchoolFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerSchool, SchoolFragment())
             .commit()
     }
 
     // Given time, display both list and detail in single screen for tablet
-    fun launchSchoolDetailsFragment(dbn: String) {
+    fun launchSchoolDetailsFragment(school: School) {
         val isTablet = resources.getBoolean(R.bool.isTablet)
         if (isTablet) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerSchoolDetail, SchoolDetailsFragment.newInstance(dbn))
+                .replace(
+                    R.id.fragmentContainerSchoolDetail,
+                    SchoolDetailsFragment.newInstance(school)
+                )
                 .addToBackStack(null)
                 .commit()
         } else {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerSchool, SchoolDetailsFragment.newInstance(dbn))
+                .replace(R.id.fragmentContainerSchool, SchoolDetailsFragment.newInstance(school))
                 .addToBackStack(null)
                 .commit()
         }

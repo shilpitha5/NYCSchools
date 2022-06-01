@@ -1,7 +1,6 @@
 package com.example.a20220601_shilpithapai_nycschools.di
 
 import com.example.a20220601_shilpithapai_nycschools.BuildConfig
-import com.example.a20220601_shilpithapai_nycschools.Constants
 import com.example.a20220601_shilpithapai_nycschools.data.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,15 +21,15 @@ fun provideOkHttpClient(): OkHttpClient {
             if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
     }
     return OkHttpClient.Builder()
-        .connectTimeout(60L, TimeUnit.SECONDS)
-        .readTimeout(60L, TimeUnit.SECONDS)
+        .connectTimeout(10L, TimeUnit.SECONDS)
+        .readTimeout(10L, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
         .build()
 }
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(Constants.BASE_URL)
+        .baseUrl(BuildConfig.BASEURL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

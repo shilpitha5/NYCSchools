@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.flow
 class SchoolSatScoreRepositoryImpl(private val apiService: ApiService) : SchoolSatScoreRepository {
     override suspend fun getSchoolSatScore(dbn: String): Flow<ResultWrapper<List<SchoolSatScore>>> =
         flow {
+            emit(ResultWrapper.Loading)
             kotlin.runCatching {
                 apiService.getSchoolSATScore(dbn)
             }.onSuccess {

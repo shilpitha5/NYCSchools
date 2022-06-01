@@ -14,7 +14,6 @@ interface ApiService {
         @Query("\$limit") limit: Int
     ): List<School>
 
-
     @GET("f9bf-2cp4.json")
     suspend fun getSchoolSATScore(
         @Query("dbn") dbn: String

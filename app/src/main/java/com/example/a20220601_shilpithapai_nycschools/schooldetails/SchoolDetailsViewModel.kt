@@ -1,5 +1,6 @@
 package com.example.a20220601_shilpithapai_nycschools.schooldetails
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,14 +13,13 @@ import kotlinx.coroutines.launch
 class SchoolDetailsViewModel(private val schoolSatScoreRepository: SchoolSatScoreRepository) :
     ViewModel() {
 
-    private var _resultLiveData: MutableLiveData<ResultWrapper<List<SchoolSatScore>>> =
-        MutableLiveData()
-    val resultLiveData
-        get() = _resultLiveData
+    private var _satScoreLiveData = MutableLiveData<ResultWrapper<List<SchoolSatScore>>>()
+    val satScoreLiveData: LiveData<ResultWrapper<List<SchoolSatScore>>>
+        get() = _satScoreLiveData
 
     fun getSchoolDetails(dbn: String) = viewModelScope.launch {
         schoolSatScoreRepository.getSchoolSatScore(dbn).collectLatest {
-            _resultLiveData.postValue(it)
+            _satScoreLiveData.postValue(it)
         }
     }
 

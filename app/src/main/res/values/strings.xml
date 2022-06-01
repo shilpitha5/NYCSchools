@@ -3,4 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="view_more">View More</string>
+    <string name="math_score">Math Score</string>
+    <string name="reading_score">Reading Score</string>
+    <string name="writing_score">Writing Score</string>
+    <string name="not_available">NA</string>
 </resources>
