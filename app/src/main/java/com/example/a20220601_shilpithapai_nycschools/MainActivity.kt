@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
                     R.id.fragmentContainerSchoolDetail,
                     SchoolDetailsFragment.newInstance(school)
                 )
-                .addToBackStack(null)
                 .commit()
         } else {
             supportFragmentManager.beginTransaction()
