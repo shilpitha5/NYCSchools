@@ -2,9 +2,9 @@ package com.example.a20220601_shilpithapai_nycschools.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.a20220601_shilpithapai_nycschools.Constants.PAGE_SIZE
 import com.example.a20220601_shilpithapai_nycschools.data.ApiService
 import com.example.a20220601_shilpithapai_nycschools.models.School
+import com.example.a20220601_shilpithapai_nycschools.util.Constants.PAGE_SIZE
 import okio.IOException
 
 class PagingDataSource(private val apiService: ApiService) : PagingSource<Int, School>() {

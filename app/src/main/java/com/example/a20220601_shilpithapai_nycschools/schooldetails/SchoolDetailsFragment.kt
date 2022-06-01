@@ -7,11 +7,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.example.a20220601_shilpithapai_nycschools.Constants.KEY_SCHOOL
 import com.example.a20220601_shilpithapai_nycschools.R
 import com.example.a20220601_shilpithapai_nycschools.data.ResultWrapper
 import com.example.a20220601_shilpithapai_nycschools.databinding.FragmentSchoolDetailsBinding
 import com.example.a20220601_shilpithapai_nycschools.models.School
+import com.example.a20220601_shilpithapai_nycschools.util.Constants.KEY_SCHOOL
+import com.example.a20220601_shilpithapai_nycschools.util.Utils.isTablet
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SchoolDetailsFragment : Fragment(R.layout.fragment_school_details) {
@@ -24,6 +25,9 @@ class SchoolDetailsFragment : Fragment(R.layout.fragment_school_details) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             school = it.getSerializable(KEY_SCHOOL) as School
+        }
+        activity?.let {
+            if (!isTablet(it)) it.title = "School Details"
         }
     }
 

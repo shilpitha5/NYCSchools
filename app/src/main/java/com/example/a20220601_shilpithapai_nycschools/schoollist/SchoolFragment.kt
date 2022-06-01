@@ -34,4 +34,11 @@ class SchoolFragment : Fragment(R.layout.fragment_school) {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.let {
+            it.title = "Schools"
+        }
+    }
 }

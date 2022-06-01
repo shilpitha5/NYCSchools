@@ -6,6 +6,7 @@ import com.example.a20220601_shilpithapai_nycschools.databinding.ActivityMainBin
 import com.example.a20220601_shilpithapai_nycschools.models.School
 import com.example.a20220601_shilpithapai_nycschools.schooldetails.SchoolDetailsFragment
 import com.example.a20220601_shilpithapai_nycschools.schoollist.SchoolFragment
+import com.example.a20220601_shilpithapai_nycschools.util.Utils.isTablet
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,8 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     // Given time, display both list and detail in single screen for tablet
     fun launchSchoolDetailsFragment(school: School) {
-        val isTablet = resources.getBoolean(R.bool.isTablet)
-        if (isTablet) {
+        if (isTablet(this)) {
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragmentContainerSchoolDetail,
