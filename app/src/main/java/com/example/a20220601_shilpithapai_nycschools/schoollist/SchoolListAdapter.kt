@@ -16,8 +16,8 @@ class SchoolListAdapter(private val showMoreDetails: (School) -> Unit) :
 
         fun bind(school: School) {
             binding.schoolName.text = school.school_name
-            binding.schoolCity.text = school.city
-            binding.viewMore.setOnClickListener {
+            "${school.city}, ${school.state_code} - ${school.zip}".also { binding.schoolCity.text = it }
+            binding.showDetails.setOnClickListener {
                 showMoreDetails(school)
             }
         }

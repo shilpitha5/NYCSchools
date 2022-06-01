@@ -2,9 +2,15 @@
     <string name="app_name">20220601-ShilpithaPai-NYCSchools</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="view_more">View More</string>
+    <string name="show_details">Show Details</string>
     <string name="math_score">Math Score</string>
     <string name="reading_score">Reading Score</string>
     <string name="writing_score">Writing Score</string>
     <string name="not_available">NA</string>
+    <string name="contact_number">Contact</string>
+    <string name="email">Email</string>
+    <string name="website">Web</string>
+    <string name="something_went_wrong">Something Went Wrong</string>
+    <string name="location">Location</string>
+    <string name="view_in_map">View in Map</string>
 </resources>
