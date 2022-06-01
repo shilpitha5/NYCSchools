@@ -26,9 +26,7 @@ class SchoolDetailsFragment : Fragment(R.layout.fragment_school_details) {
         arguments?.let {
             school = it.getSerializable(KEY_SCHOOL) as School
         }
-        activity?.let {
-            if (!isTablet(it)) it.title = "School Details"
-        }
+        if (!isTablet(requireContext())) activity?.title = "School Details"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

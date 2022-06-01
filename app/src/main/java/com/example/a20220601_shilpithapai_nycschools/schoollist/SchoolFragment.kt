@@ -20,16 +20,26 @@ class SchoolFragment : Fragment(R.layout.fragment_school) {
     private lateinit var schoolAdapter: SchoolListAdapter
 
     private val viewModel by viewModel<SchoolViewModel>()
+    private val parentActivity by lazy {
+        activity as MainActivity
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSchoolBinding.bind(view)
-        val parentActivity = activity as MainActivity
+        setUpAdapter()
+        observeData()
+    }
+
+    private fun setUpAdapter() {
         schoolAdapter = SchoolListAdapter(parentActivity::launchSchoolDetailsFragment)
         binding?.rvSchools?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = schoolAdapter
         }
+    }
+
+    private fun observeData() {
         lifecycleScope.launch {
             viewModel.getSchools().collectLatest {
                 schoolAdapter.submitData(it)
