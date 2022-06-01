@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a20220601_shilpithapai_nycschools.MainActivity
 import com.example.a20220601_shilpithapai_nycschools.R
 import com.example.a20220601_shilpithapai_nycschools.databinding.FragmentSchoolBinding
+import com.example.a20220601_shilpithapai_nycschools.util.Utils.isTablet
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -31,6 +33,18 @@ class SchoolFragment : Fragment(R.layout.fragment_school) {
         lifecycleScope.launch {
             viewModel.getSchools().collectLatest {
                 schoolAdapter.submitData(it)
+            }
+        }
+
+        lifecycleScope.launch {
+            schoolAdapter.loadStateFlow.distinctUntilChangedBy {
+                it.refresh
+            }.collect {
+                // launches the detail fragment by default for first item in tablet
+                if (schoolAdapter.snapshot().isNotEmpty())
+                    if (isTablet(requireContext()))
+                        parentActivity.launchSchoolDetailsFragment(schoolAdapter.snapshot()[0]!!)
+
             }
         }
     }
