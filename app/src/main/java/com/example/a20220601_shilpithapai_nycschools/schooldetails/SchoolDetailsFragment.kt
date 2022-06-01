@@ -30,18 +30,20 @@ class SchoolDetailsFragment : Fragment(R.layout.fragment_school_details) {
 
         observeData()
 
-
-
     }
 
     private fun observeData() {
         viewModel.resultLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is ResultWrapper.Success -> {
-                    binding?.schoolName?.text = "School Name : ${it.value.school_name}"
-                    binding?.mathScore?.text = "Math Score : ${it.value.sat_math_avg_score}"
-                    binding?.readingScore?.text = "Reading Score : ${it.value.sat_critical_reading_avg_score}"
-                    binding?.writingScore?.text = "Writing Score : ${it.value.sat_critical_reading_avg_score}"
+                    if (it.value.isNotEmpty()) {
+                        binding?.schoolName?.text = "School Name : ${it.value[0].school_name}"
+                        binding?.mathScore?.text = "Math Score : ${it.value[0].sat_math_avg_score}"
+                        binding?.readingScore?.text =
+                            "Reading Score : ${it.value[0].sat_critical_reading_avg_score}"
+                        binding?.writingScore?.text =
+                            "Writing Score : ${it.value[0].sat_critical_reading_avg_score}"
+                    }
                 }
                 else -> {
 

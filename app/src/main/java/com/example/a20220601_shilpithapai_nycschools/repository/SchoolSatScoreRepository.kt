@@ -8,5 +8,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface SchoolSatScoreRepository {
 
-    suspend fun getSchoolSatScore(dbn:String): Flow<ResultWrapper<SchoolSatScore>>
+    suspend fun getSchoolSatScore(dbn:String): Flow<ResultWrapper<List<SchoolSatScore>>>
 }

@@ -4,5 +4,5 @@ sealed class ResultWrapper<out T> {
     object Loading : ResultWrapper<Nothing>()
     data class Success<T>(val value: T) : ResultWrapper<T>()
     data class NetworkError(val code: Int, val message: String) : ResultWrapper<Nothing>()
-    data class Error(val exception: Exception) : ResultWrapper<Nothing>()
+    data class Error(val exception: Throwable) : ResultWrapper<Nothing>()
 }

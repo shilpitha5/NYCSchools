@@ -5,20 +5,21 @@ import com.example.a20220601_shilpithapai_nycschools.data.ResultWrapper
 import com.example.a20220601_shilpithapai_nycschools.models.SchoolSatScore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import okio.IOException
 
 class SchoolSatScoreRepositoryImpl(private val apiService: ApiService) : SchoolSatScoreRepository {
-    override suspend fun getSchoolSatScore(dbn: String): Flow<ResultWrapper<SchoolSatScore>> =
+    override suspend fun getSchoolSatScore(dbn: String): Flow<ResultWrapper<List<SchoolSatScore>>> =
         flow {
-            try {
-                val result = apiService.getSchoolSATScore(dbn)
-                if (result.isSuccessful) {
-                   emit( ResultWrapper.Success(result.body()!![0]))
+            kotlin.runCatching {
+                apiService.getSchoolSATScore(dbn)
+            }.onSuccess {
+                if (it.isSuccessful) {
+                    emit(ResultWrapper.Success(it.body()!!))
                 } else {
-                    emit(ResultWrapper.NetworkError(result.code(), result.message()))
+                    emit(ResultWrapper.NetworkError(it.code(), it.message()))
                 }
-            } catch (exception: IOException) {
-                emit(ResultWrapper.Error(exception))
+            }.onFailure {
+                emit(ResultWrapper.Error(it))
             }
+
         }
 }
