@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    // Given time, display both list and detail in single screen for tablet
     fun launchSchoolDetailsFragment(school: School) {
         if (isTablet(this)) {
             supportFragmentManager.beginTransaction()
