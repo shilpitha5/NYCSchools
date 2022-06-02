@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">20220601-ShilpithaPai-NYCSchools</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="show_details">Show Details</string>
     <string name="math_score">Math Score</string>
     <string name="reading_score">Reading Score</string>
