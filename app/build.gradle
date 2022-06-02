@@ -17,11 +17,11 @@ android {
     }
 
     buildTypes {
-        debug{
-            buildConfigField( "String" ,"BASEURL","\"https://data.cityofnewyork.us/resource/\"")
+        debug {
+            buildConfigField("String", "BASEURL", "\"https://data.cityofnewyork.us/resource/\"")
         }
         release {
-            buildConfigField( "String" ,"BASEURL","\"https://data.cityofnewyork.us/resource/\"")
+            buildConfigField("String", "BASEURL", "\"https://data.cityofnewyork.us/resource/\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -34,7 +34,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 }
@@ -60,6 +60,10 @@ dependencies {
     implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    implementation 'io.mockk:mockk:1.12.4'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
