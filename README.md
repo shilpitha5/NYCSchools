@@ -1,7 +1,9 @@
 Screenshots
 
-![Android School Screen](screenshots/Screenshot_20220603_094528.png)
+<img src="screenshots/Screenshot_20220603_094528.png"  width="240">
 
-![Android School Detail Screen](screenshots/Screenshot_20220603_094557.png)
+<img src="screenshots/Screenshot_20220603_094557.png"  width="240">
 
-![Tablet School Detail Screen](screenshots/Screenshot_20220603_094648.png)
+<img src="screenshots/Screenshot_20220603_094648.png"  width="240">
+
+
